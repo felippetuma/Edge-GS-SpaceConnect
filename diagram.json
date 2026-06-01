@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard", "id": "bb1", "top": -252.6, "left": -141.2, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 96.6, "left": -96.6, "attrs": {} }
+  ],
+  "connections": [],
+  "dependencies": {}
+}
