@@ -1,12 +1,12 @@
-# 🧑‍🚀Projeto Space Protect
+# 🧑‍🚀 Orbita Powered by Terrabit
 
 ### 📰 Descrição do Projeto
 
-O projeto Space Protect foi desenvolvido para Global Solucion Space Connect com a finalidade utilizar satelites espaciais para assim analisar em tempo real crises climaticas e incendios em andamento, para dessa forma alertar os serviços de emergencia, orgãos governamentais resposáveis e alertar os cidadões que residem ou estão na região que está sendo ou será afetada no momento.
+O projeto Orbita desenvolvido por nosso o Terrabit, é uma plataforma focada no monitoramento agrícola por meio do uso de satélites espaciais que fornecem alertas em tempo real para os produtos ruais sobre o clima, desastres naturais e pragas, controlando o terreno por hectare e plantações organizadas por área. Sendo disponiveis em dois tipos de planos o Normal no qual conta com o mapa e alertas para até 10 mil hectares e o Premium que conta com Inteligencia Artificial e recomendações para até 100 mil hectares, o preço fixo do serviço é fixado em 20 reais por hectare com a mobilidade de planos com assinaturas e pagamento mensal.
 
-### Objetivo da Solução
+### 📖 Objetivo da Solução
 
-O objetivo da nossa solução que estamos desenvolvendo é analisar a temperatura, umidade para dessa maneira poder crusar esses dados e informar os eventos climaticos e incendios.
+Nosso objetivo é democratizar o acesso ao uso de tecnologias de munitoramento agrícola, oferecendo assim aos produtores ruais uma ferramenta inteligente que é capaz de antecipar possíveis riscos e apoiar na tomada de decisões com base em dados precisos e frequentimente atualizados. Por intermedio da integração de satélites e APIs climáticas, a nossa plataforma busca reduzir as perdas na produção que podem ser causadas por eventros climáicos extremos, desastres naturais e pragas, promovendo dessa maneira uma gestão mais eficiente, segura e sustentável das propriedades rurais, independentemente do porte da operação.
 
 ### ⚙️ Componentes Utilizados
 
@@ -14,26 +14,44 @@ O objetivo da nossa solução que estamos desenvolvendo é analisar a temperatur
 | -------------------- | ---------- |
 | Arduino Uno | 1x |
 | Breadbord | 1x |
-| Jumper Macho-Macho | x |
+| Jumper Macho-Macho | 11x |
 | DTH22 | 1x |
-| Painel LCD | 1x |
+| Sensor Ultrassônico | 1x |
+| Painel LCD 20x4 I2C | 1x |
 
-### Explicação do Funcionamento
+### 🧮 Explicação do Funcionamento
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget purus volutpat, accumsan enim sit amet, ultricies elit. Nulla ac tempor risus. Ut ornare mauris sed magna iaculis ullamcorper. Nullam sed imperdiet magna, sit amet pharetra tortor. Pellentesque at ante neque. Curabitur at pellentesque tellus. Fusce id mollis ligula, vitae sodales erat. Phasellus eget magna et nisi efficitur varius a vitae orci. Maecenas lobortis cursus dui nec dictum. Nulla ac facilisis leo. Quisque facilisis gravida diam, vitae scelerisque metus hendrerit id. Ut libero lacus, aliquet sed massa nec, molestie porta ligula. Praesent magna massa, egestas vitae scelerisque vel, elementum id mauris. Etiam vel ultricies arcu, eu egestas lacus. Aliquam purus dui, iaculis vel ex non, tempus vulputate tortor.
+O nosso sistema é composto por um **Arduino Uno** conectado a uma protoboard no qual está sendo ligado um sensor **DHT11 ou DHT22**, que é o responsável pela leitura da temperatura e a umidade, e um sensor **Ultrassônico**, utilizado para a medição da profundidade da água e alertar possíveis alagamentos. As informações coletadas são processadas no Arduino e assim seram exibidas em tempo real no display **LCD I2C 20x4**, formando assim uma estação de munitoramento agrícola.
 
-Morbi tempor enim vel placerat ultrices. Cras ut congue dui, sed ullamcorper nunc. Donec eu maximus nibh. Morbi consectetur, lectus at imperdiet faucibus, metus enim tincidunt erat, congue pharetra ipsum metus eget ante. Morbi mauris elit, vestibulum vitae magna non, ultrices condimentum lacus. Mauris sed justo commodo, varius velit laoreet, porttitor justo. Fusce pretium pulvinar justo nec placerat. Donec nec orci nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam pellentesque mauris eget lacus posuere imperdiet.
+### 🔍 Estrutura do circuito
 
-Nullam suscipit neque ligula, id consectetur velit cursus non. Suspendisse potenti. Donec eu viverra tortor, sit amet rutrum odio. Duis auctor aliquet tristique. Sed fringilla lectus sit amet tortor mattis, ac vehicula augue convallis. Sed sed ex ac nisi ornare cursus ac at nibh. Nulla elementum mollis arcu, tincidunt pretium tellus blandit vitae. Phasellus vel porttitor urna, nec placerat nunc. Nunc lobortis risus diam, eu pharetra neque aliquet eu. Donec condimentum nisl metus. Aenean scelerisque, ligula ac faucibus sollicitudin, augue purus ultrices elit, et malesuada orci tellus in dolor. Curabitur quis tortor ac leo vulputate mollis. Fusce sollicitudin feugiat tortor in molestie. Nam imperdiet libero nec dui aliquet, vel condimentum est venenatis.
+![Imagem do Projeto](Images/imagem-projeto.png) 
 
-### Estrutura do circuito
+### 📝 Instruções de Execução
 
-![Imagem Lorem](https://picsum.photos/id/1015/500/300) 
+1. **Instalação das Bibliotecas utilizadas**
 
-### Instruções de Execução
+    ❗ Antes de iniciar o projeto é necessário a instalação das seguites bibliotecas no **Arduino IDE**:
 
-## 👥 Integrantes:
+    - `DHT Sensor Library` - Biblioteca responsável pela leitura do sensor DHT
+    - `LiquidCrystal I2C` - Biblioteca responsável pelo controle do display LCD I2C
 
+2. **Conexão dos Componentes:**
+
+    - Conectar a pino `SDA` do **DHT** na pino digital 2
+    - Conectar o pino do `trigger` do sensor **Ultrassônico** na pino 13 e o pino `echo` no pino 8
+    - Conectar o endereço `0x27` por via das portas `SDA` (pino A4 do **Arduino**) e `SCL` (pino A5 do **Arduino**) para assim ligar o display LCD I2C.
+
+3. **Funcionamento:**
+
+    Após o inicializar o sistema realizara leituras contínuas dos sensores DHT e Ultrassônico e exibirá os resultados no display LCD a cada 2 segundos, com base nas seguites condições:
+
+    - Controle do nível de água: caso a profundidade seja acima 7 cm o sistema da Orbita irá alertar um possível alagamento
+    - Controle da temperatura: caso a temperatura esteja abaixo de 18ºC ou acima de 30º irá ser emitido um alerta de temperatura, entre as temperatura 18ºC e 30ºC o sistema retorná que a temperatura esta amena
+    - Controle de Umidade :  com a umidade abaixo de 10% ou acima de 40% será emitido um alerta de umidade, dentro dessa faixa de porcentagem de umidade o sistema avisara que a umidade está normal.
+
+
+## 👥 Integrantes da TerraBit
 
 | Nomes dos Integrantes | RMs |
 | ---------------------- | --------------- |
