@@ -25,7 +25,7 @@ O nosso sistema é composto por um **Arduino Uno** conectado a uma protoboard no
 
 ### 🔍 Estrutura do circuito
 
-![Imagem do Projeto](Images/imagem-projeto.png) 
+![Imagem do Projeto](https://i.imgur.com/WBYRpkL.png) 
 
 ### 📝 Instruções de Execução
 
