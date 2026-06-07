@@ -3,9 +3,46 @@
   "author": "Anonymous maker",
   "editor": "wokwi",
   "parts": [
-    { "type": "wokwi-breadboard", "id": "bb1", "top": -252.6, "left": -141.2, "attrs": {} },
-    { "type": "wokwi-arduino-uno", "id": "uno", "top": 96.6, "left": -96.6, "attrs": {} }
+    { "type": "wokwi-breadboard", "id": "bb1", "top": -387, "left": -563.6, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -57, "left": -519, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -441.3, "left": 4.2, "attrs": {} },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -411.3,
+      "left": -560.9,
+      "attrs": { "distance": "2" }
+    },
+    {
+      "type": "wokwi-lcd2004",
+      "id": "lcd2",
+      "top": 112,
+      "left": -176.8,
+      "attrs": { "pins": "i2c" }
+    }
   ],
-  "connections": [],
+  "connections": [
+    [ "uno:GND.1", "bb1:bn.1", "#8f4814", [ "v-105.6", "h-114.9" ] ],
+    [ "uno:5V", "bb1:bp.1", "red", [ "v57.5", "h-197.8", "v-393.6" ] ],
+    [ "bb1:9t.d", "bb1:bn.6", "#8f4814", [ "v0" ] ],
+    [ "bb1:6t.d", "bb1:bp.4", "red", [ "v0" ] ],
+    [ "dht1:VCC", "bb1:bp.48", "red", [ "v0" ] ],
+    [ "dht1:GND", "bb1:bn.50", "#8f4814", [ "v0" ] ],
+    [ "dht1:SDA", "uno:2", "green", [ "v345.6", "h-239.9", "v-96", "h-67.2" ] ],
+    [ "ultrasonic1:TRIG", "uno:13", "blue", [ "v201.6", "h86" ] ],
+    [ "ultrasonic1:ECHO", "uno:8", "gold", [ "v153.6", "h95.2" ] ],
+    [ "bb1:bn.26", "lcd2:GND", "#8f4814", [ "v0" ] ],
+    [ "bb1:bp.28", "lcd2:VCC", "red", [ "v0" ] ],
+    [ "lcd2:SCL", "uno:A5", "orange", [ "h0" ] ],
+    [ "uno:A4", "lcd2:SDA", "gray", [ "v0" ] ],
+    [ "dht1:VCC", "bb1:59t.b", "", [ "$bb" ] ],
+    [ "dht1:SDA", "bb1:60t.b", "", [ "$bb" ] ],
+    [ "dht1:NC", "bb1:61t.b", "", [ "$bb" ] ],
+    [ "dht1:GND", "bb1:62t.b", "", [ "$bb" ] ],
+    [ "ultrasonic1:VCC", "bb1:6t.c", "", [ "$bb" ] ],
+    [ "ultrasonic1:TRIG", "bb1:7t.c", "", [ "$bb" ] ],
+    [ "ultrasonic1:ECHO", "bb1:8t.c", "", [ "$bb" ] ],
+    [ "ultrasonic1:GND", "bb1:9t.c", "", [ "$bb" ] ]
+  ],
   "dependencies": {}
 }
