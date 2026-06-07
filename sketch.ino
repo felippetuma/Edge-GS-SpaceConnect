@@ -1,6 +1,15 @@
-void setup() {
-  // put your setup code here, to run once:
+int umi = 0;
+int temp = 0;
+int dist = 0;
 
+
+void setup() {
+  Serial.begin(9600);
+  lcd.init();                     
+  lcd.backlight();
+  dht.begin();
+  pinMode(trigger, OUTPUT);
+  pinMode(echo, INPUT);
 }
 
 void loop() {
