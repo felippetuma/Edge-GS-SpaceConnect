@@ -1,3 +1,10 @@
+#include <DHT.h>
+#include <LiquidCrystal_I2C.h>
+
+DHT dht(DHTPIN, DHTTYPE);
+
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
 int umi = 0;
 int temp = 0;
 int dist = 0;
