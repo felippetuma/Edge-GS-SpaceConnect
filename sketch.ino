@@ -1,6 +1,10 @@
 #include <DHT.h>
 #include <LiquidCrystal_I2C.h>
+#define trigger 13
+#define echo 8
 
+#define DHTPIN 2
+#define DHTTYPE DHT22
 DHT dht(DHTPIN, DHTTYPE);
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);
