@@ -20,6 +20,16 @@ void setup() {
 }
 
 void loop() {
+  digitalWrite(trigger, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigger, LOW);
+  
+  dist = pulseIn(echo, HIGH);
+  
+  dist = dist / 58;
+  temp = dht.readTemperature();
+  umi = dht.readHumidity();
+  
   if(dist > 7) {
     lcd.clear();
     lcd.setCursor(0,0);
